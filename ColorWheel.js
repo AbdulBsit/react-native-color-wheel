@@ -56,7 +56,7 @@ export class ColorWheel extends Component {
               dy: this.state.pan.y,
             },
           ],
-          {listener: this.updateColor,useNativeDriver:true}
+          {listener: this.updateColor,useNativeDriver:false}
         )(event, gestureState)
       },
       onMoveShouldSetPanResponder: () => true,
