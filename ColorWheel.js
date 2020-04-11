@@ -41,8 +41,8 @@ export class ColorWheel extends Component {
         })
         return true
       },
-      onStartShouldSetPanResponder: () => true,
-      onMoveShouldSetPanResponderCapture: () => true,
+      
+      onMoveShouldSetPanResponder: () => true,
       onPanResponderGrant: () => true,
       onPanResponderMove: (event, gestureState) => {
         if (this.outBounds(gestureState)) return
@@ -56,7 +56,7 @@ export class ColorWheel extends Component {
               dy: this.state.pan.y,
             },
           ],
-          {listener: this.updateColor}
+          {listener: this.updateColor,useNativeDriver:true}
         )(event, gestureState)
       },
       onMoveShouldSetPanResponder: () => true,
@@ -178,6 +178,7 @@ export class ColorWheel extends Component {
         x: left - this.props.thumbSize / 2,
         y: top - this.props.thumbSize / 2,
       },
+      useNativeDriver:false
     }).start()
   }
 
